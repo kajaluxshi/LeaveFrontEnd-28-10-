@@ -109,7 +109,7 @@
                             <div class="row">
                                 <label class="control-label col-lg-6">Role ID:</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="id" name="Id" readonly [(ngModel)]="roleObj.id">
+                                    <input type="text" class="form-control" id="id" name="Id" readonly [(ngModel)]="EditroleObj.id">
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                             <div class="row">
                                 <label class="control-label col-lg-6">Role Name:</label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="roleObj.roleName">
+                                    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="EditroleObj.roleName">
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" data-dismiss="modal" (click)="updateRoleById(roleObj)">Submit</button>
+                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" data-dismiss="modal" (click)="updateRoleById(EditroleObj)">Submit</button>
             </div>
         </div>
     </div>

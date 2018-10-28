@@ -10,14 +10,16 @@ import { Department } from 'src/app/Models/department';
 export class DepartmentComponent implements OnInit {
   departmentDetailsobj:Department=new Department();
   departmentDetailsSave:Department[];  
-
-
-
+  departmentEditobj:Department=new Department();
 
   constructor(private departmentService:DepartmentService) { }
 
   ngOnInit() {
     this.getDepartmentDetails();
+  }
+
+  clearDEPFunction(){
+    this.departmentDetailsobj.departmentName=null;
   }
 
   getDepartmentDetails(){
@@ -32,29 +34,28 @@ export class DepartmentComponent implements OnInit {
       this.getDepartmentDetails();
       console.log(saveDepartment);
     });
+    this.clearDEPFunction();
   }
 
-  
-  
   getDetailsId(departmentDetailsId){
-    this.departmentDetailsobj=Object.assign({},departmentDetailsId)
-
+    this.departmentEditobj=Object.assign({},departmentDetailsId)
   }
 
   deleteDepartment(DepartmentDeletDetails){
     this.departmentService.deleteDepartment(DepartmentDeletDetails).subscribe(departmentDelete=>{
-      this.departmentDetailsobj.id=DepartmentDeletDetails.id;
+      this.departmentEditobj.id=DepartmentDeletDetails.id;
       this.getDepartmentDetails();
       //alert("Delete Department Sucessfully");
     });
-
+    this.clearDEPFunction();
   }
 
   UpdateDepartmentDetails(){
-    this.departmentService.editDepartmentById(this.departmentDetailsobj).subscribe(updatedDepartment=>{
+    this.departmentService.editDepartmentById(this.departmentEditobj).subscribe(updatedDepartment=>{
     this.getDepartmentDetails();
     //alert("Updated Department Sucessfully");
     });
+    this.clearDEPFunction();
   }
 
 }

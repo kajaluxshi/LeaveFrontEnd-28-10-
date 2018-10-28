@@ -54,7 +54,8 @@
                 data-dismiss="modal" (click)="editStatus(usr)"> Edit</button>
             </td>
             <td>
-              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal" (click)="editStatus(usr)">Delete</button>
+              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal"
+                (click)="editStatus(usr)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -77,13 +78,14 @@
       </div>
 
       <div class="modal-body">
+        <!-- {{userObj | json}} -->
         <div class="form-horizontal">
 
           <div class="inline">
             <div class="row">
               <div class="form-group col-lg-6">
                 <div class="row">
-                  <label class="control-label col-lg-6" >First Name:</label>
+                  <label class="control-label col-lg-6">First Name:</label>
                   <div class="col-lg-6">
                     <input type="text" class="form-control" name="firstname" [(ngModel)]="userObj.firstName">
                   </div>
@@ -136,33 +138,12 @@
                 <div class="row">
                   <label class="control-label col-lg-6">Confirm Password:</label>
                   <div class="col-lg-6">
-                    <input type="password" class="form-control" name="cpassword" [(ngModel)]="userObj.password">
+                    <input type="password" class="form-control" name="cpassword">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- <div class="inline">
-            <div class="row">
-              <div class="form-group col-lg-6">
-                <div class="row">
-                  <label class="control-label col-lg-6">Gender:</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" name="Gender">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group col-lg-6">
-                <div class="row">
-                  <label class="control-label col-lg-6"> Date of Birth:</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" name="dob">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
 
           <div class="inline">
             <div class="row">
@@ -190,12 +171,11 @@
               <div class="form-group col-lg-6">
                 <div class="row">
                   <label class="control-label col-lg-6" ng-model="selected">Role:</label>
-                  <div class="col-lg-6" >
-                    <select class="form-control form-control-sm">
+                  <div class="col-lg-6">
+                    <select class="form-control form-control-sm" [(ngModel)]="userObj.roleId">
                       <option selected default hidden>Select Role</option>
                       <option *ngFor="let role of roles" value="{{role.id}}">{{role.roleName}}</option>
                     </select>
-                    <!-- <input type="text" class="form-control" name="role" [(ngModel)]="userObj.roleId"> -->
                   </div>
                 </div>
               </div>
@@ -203,11 +183,10 @@
                 <div class="row">
                   <label class="control-label col-lg-6" ng-model="selected">Department:</label>
                   <div class="col-lg-6">
-                    <select class="form-control form-control-sm">
+                    <select class="form-control form-control-sm" [(ngModel)]="userObj.departmentId">
                       <option selected default hidden>Select Department</option>
                       <option *ngFor="let department of departments" value="{{department.id}}">{{department.departmentName}}</option>
                     </select>
-                    <!-- <input type="text" class="form-control" name="department" [(ngModel)]="userObj.departmentId"> -->
                   </div>
                 </div>
               </div>
@@ -217,7 +196,8 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="float-right">
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" (click)="addUser()" data-dismiss="modal">Add</button>
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" (click)="addUser()"
+                  data-dismiss="modal">Add</button>
               </div>
             </div>
           </div>
@@ -286,48 +266,6 @@
             </div>
           </div>
 
-          <!-- <div class="inline">
-            <div class="row">
-              <div class="form-group col-lg-6">
-                <div class="row">
-                  <label class="control-label col-lg-6">Password:</label>
-                  <div class="col-lg-6">
-                    <input type="password" class="form-control" name="password" [(ngModel)]="userEditObj.password">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group col-lg-6">
-                <div class="row">
-                  <label class="control-label col-lg-6">Confirm Password:</label>
-                  <div class="col-lg-6">
-                    <input type="password" class="form-control" name="cpassword" [(ngModel)]="userEditObj.password">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="inline">
-            <div class="row">
-              <div class="form-group col-lg-6">
-                <div class="row">
-                  <label class="control-label col-lg-6">Gender:</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" name="Gender">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group col-lg-6">
-                <div class="row">
-                  <label class="control-label col-lg-6"> Date of Birth:</label>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" name="dob">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
           <div class="inline">
             <div class="row">
               <div class="form-group col-lg-6">
@@ -354,11 +292,11 @@
               <div class="form-group col-lg-6">
                 <div class="row">
                   <label class="control-label col-lg-6" ng-model="selected">Role:</label>
-                  <div class="col-lg-6" >
-                      <select class="form-control form-control-sm">
-                          <option selected default hidden>Select Role</option>
-                          <option *ngFor="let role of roles" value="{{role.id}}" ng-selected="selected">{{role.roleName}}</option>
-                        </select>
+                  <div class="col-lg-6">
+                    <select class="form-control form-control-sm">
+                      <option [(ngModel)]="userObj.roleId">{{userObj.roleName}}</option>
+                      <option *ngFor="let role of roles" value="{{role.id}}" ng-selected="selected">{{role.roleName}}</option>
+                    </select>
                     <!-- <input type="text" class="form-control" name="role" [(ngModel)]="userEditObj.role"> -->
                   </div>
                 </div>
@@ -367,10 +305,10 @@
                 <div class="row">
                   <label class="control-label col-lg-6" ng-model="selected">Department:</label>
                   <div class="col-lg-6">
-                      <select class="form-control form-control-sm">
-                          <option selected default hidden>Select Department</option>
-                          <option *ngFor="let department of departments" value="{{department.id}}" ng-selected="selected">{{department.departmentName}}</option>
-                        </select>
+                    <select class="form-control form-control-sm">
+                      <option selected default hidden>Select Department</option>
+                      <option *ngFor="let department of departments" value="{{department.id}}" ng-selected="selected">{{department.departmentName}}</option>
+                    </select>
                     <!-- <input type="text" class="form-control" name="department" [(ngModel)]="userEditObj.department"> -->
                   </div>
                 </div>
@@ -390,8 +328,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- Modal for Delete -->
 <div class="modal fade" id="DeleteModal">

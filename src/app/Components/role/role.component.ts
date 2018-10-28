@@ -10,10 +10,15 @@ import { Role } from 'src/app/Models/role';
 export class RoleComponent implements OnInit {
   roleObj: Role = new Role();
   role: Role[];
+  EditroleObj: Role = new Role();
+
   constructor(private roleservice: RoleService) { }
 
   ngOnInit() {
     this.getRole();
+  }
+  clearRoleFunction(){
+    this.roleObj.roleName=null;
   }
   getRole() {
     this.roleservice.getAllRole().subscribe(xyz => {
@@ -26,11 +31,12 @@ export class RoleComponent implements OnInit {
      // alert("Role Added Sucessfully");
       this.getRole();
     });
+    this.clearRoleFunction();
   }
   //Assign to datas in Delete Model and Edit Model
   editRole(role) {
     console.log(role);
-    this.roleObj = Object.assign({}, role);
+    this.EditroleObj = Object.assign({}, role);
   }
   deleteRoleById(role) {
     console.log(role);
@@ -40,12 +46,14 @@ export class RoleComponent implements OnInit {
       this.getRole();
       // console.log(leaveType);
     });
+    this.clearRoleFunction();
   }
   updateRoleById() {
-    this.roleservice.updateRoleType(this.roleObj).subscribe(data => {
+    this.roleservice.updateRoleType(this.EditroleObj).subscribe(data => {
      // alert("Role Updated Sucessfully");
       this.getRole();
     });
+    this.clearRoleFunction();
   }
  
 }

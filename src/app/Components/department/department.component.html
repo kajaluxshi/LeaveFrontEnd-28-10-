@@ -100,7 +100,7 @@
                                   <div class="row">
                                       <label class="control-label col-lg-6">Department ID:</label>
                                       <div class="col-lg-6">
-                                          <input type="text" class="form-control" id="id" name="Id" disabled [(ngModel)]="departmentDetailsobj.id">
+                                          <input type="text" class="form-control" id="id" name="Id" disabled [(ngModel)]="departmentEditobj.id">
                                       </div>
                                   </div>
                               </div>
@@ -109,7 +109,7 @@
                           <div class="row">
                               <label class="control-label col-lg-6">Department Name:</label>
                               <div class="col-lg-6">
-                                  <input type="text" class="form-control" id="username" name="username" [(ngModel)]="departmentDetailsobj.departmentName">
+                                  <input type="text" class="form-control" id="username" name="username" [(ngModel)]="departmentEditobj.departmentName">
                               </div>
                           </div>
                       </div>
@@ -145,7 +145,7 @@
   
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="deleteDepartment(departmentDetailsobj)">Yes</button>
+            <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="deleteDepartment(departmentEditobj)">Yes</button>
             <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
           </div>
         </div>

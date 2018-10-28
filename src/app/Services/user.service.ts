@@ -13,11 +13,6 @@ const httpOptions = {
 export class UserService {
   constructor(private httpObj:HttpClient) { }
   usrUrl="http://localhost:8080/user";
-  private roleUrl = "http://localhost:8080/role";
-
-  getAllRole() {
-    return this.httpObj.get<Role[]>(this.roleUrl);
-  }
 
   getAllUser(){
     return this.httpObj.get<User[]>(this.usrUrl);

@@ -10,10 +10,17 @@ import { LeavetypeService } from 'src/app/Services/leavetype.service';
 export class LeavetypeComponent implements OnInit {
 LeavetypeObj:Leavetype=new Leavetype();
 leaveTypeArr:Leavetype[];
+EditLeavetypeObj:Leavetype=new Leavetype();
+
   constructor(private leavetypeService:LeavetypeService) { }
 
   ngOnInit() {
     this.getAllLeaveTypes();
+  }
+
+  clearLeaveTypeFunction(){
+    this.LeavetypeObj.leaveType=null;
+    this.LeavetypeObj.allocationDays=null;
   }
 
   getAllLeaveTypes(){
@@ -29,6 +36,7 @@ leaveTypeArr:Leavetype[];
       console.log(leavetypeDetails);
       this.getAllLeaveTypes();
     });
+    this.clearLeaveTypeFunction();
   }
 
   deleteLeaveTypes(leaveType){
@@ -37,6 +45,7 @@ leaveTypeArr:Leavetype[];
       // alert("LeaveTypeDeleted");
       this.getAllLeaveTypes();
     });
+    this.clearLeaveTypeFunction();
   }
 
   editLeaveType(leaveType){
@@ -48,5 +57,6 @@ leaveTypeArr:Leavetype[];
       // alert("LeaveType updated");
       this.getAllLeaveTypes();
     });
+    this.clearLeaveTypeFunction();
   }
 }

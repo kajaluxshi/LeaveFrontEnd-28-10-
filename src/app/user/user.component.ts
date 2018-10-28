@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../Models/user';
-import { Role } from '../Models/role';
-import { Department } from '../Models/department';
 import { UserService } from '../Services/user.service';
+import { Role } from '../Models/role';
 import { RoleService } from '../Services/role.service';
+import { Department } from '../Models/department';
 import { DepartmentService } from '../Services/department.service';
 
 @Component({
@@ -12,7 +12,6 @@ import { DepartmentService } from '../Services/department.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
   userObj: User = new User();
   user: User[];
   userEditObj: User = new User();
@@ -30,6 +29,20 @@ export class UserComponent implements OnInit {
     this.getAllDepartmentList();
   }
 
+  clearUserFunction(){
+    this.userObj.firstName=null;
+    this.userObj.lastName=null;
+    this.userObj.userName=null;
+    this.userObj.roleId=null;
+    this.userObj.departmentId=null;
+    this.userObj.joinDate=null;
+    this.userObj.email=null;
+    this.userObj.password=null;
+    this.userObj.servicePeriod=null;
+
+
+  }
+  
   getAllUserList() {
     this.userService.getAllUser().subscribe(data => {
       this.user = data;
@@ -38,17 +51,21 @@ export class UserComponent implements OnInit {
   }
 
   addUser() {
+    this.userObj.joinDate=new Date(this.userObj.joinDate)
     this.userService.postUser(this.userObj).subscribe(addusr => {
       console.log(addusr);
       this.getAllUserList();
     });
+    this.clearUserFunction();
   }
+
   deleteUserById(deluser) {
     this.userService.deleteUser(deluser).subscribe(data => {
       this.userObj.id = deluser.id;
       // alert("User deleted");
       this.getAllUserList();
     });
+    this.clearUserFunction();
   }
 
   editStatus(usr) {
@@ -60,6 +77,7 @@ export class UserComponent implements OnInit {
       // alert("User updated"); 
       this.getAllUserList();
     });
+    this.clearUserFunction();
   }
 
   getAllRoleList() {
@@ -75,6 +93,4 @@ export class UserComponent implements OnInit {
       console.log(data);
     });
   }
-
-  
 }
