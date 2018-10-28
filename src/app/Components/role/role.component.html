@@ -1,0 +1,161 @@
+<div class="row">
+    <div class="col-sm-11">
+        <div class="card">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="paddingformat">Role</h4>
+                </div>
+                <div class="col-sm-5">
+                    <div class="paddingformat float-right">
+                        <button type="button" class="btn btn-primary he3" data-toggle="modal" data-target="#AddRoleModal">Add
+                            Role</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-11">
+        <div class="card">
+            <!--Table-->
+            <table class="table table-striped">
+                <thead>
+                    <tr class="he1">
+                        <th>Role ID</th>
+                        <th>Role Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let roles of role">
+                        <td>{{roles.id}}</td>
+                        <td>{{roles.roleName}}</td>
+                        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditRoleModal"
+                                (click)="editRole(roles)">Edit</button>
+                        <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteRoleModal"
+                                (click)="editRole(roles)">Delete</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for Add -->
+<div class="modal" id="AddRoleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h6 class="modal-title">Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="inline">
+                            <div class="row">
+                                <form class="col-md">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-lg-6">Role Name:</label>
+
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" name="rolename" id="rolename"
+                                                [(ngModel)]="roleObj.roleName">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="addRole()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal for Edit -->
+<div class="modal" id="EditRoleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h6 class="modal-title">Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">Role ID:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="id" name="Id" readonly [(ngModel)]="roleObj.id">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">Role Name:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="roleObj.roleName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" data-dismiss="modal" (click)="updateRoleById(roleObj)">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for Delete -->
+<div class="modal" id="DeleteRoleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h6 class="modal-title">Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <P>Are You Sure To Delete?</P>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" data-dismiss="modal" (click)="deleteRoleById(roleObj)">Yes</button>
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" data-dismiss="modal" (click)="DeleteMsg(roleObj)">No</button>
+            </div>
+        </div>
+    </div>
+</div>

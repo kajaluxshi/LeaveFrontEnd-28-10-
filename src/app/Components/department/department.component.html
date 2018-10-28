@@ -1,0 +1,153 @@
+<div class="row">
+  <div class="col-sm-11">
+      <div class="card">
+          <div class="row">
+              <div class="col-sm-6">
+                  <h5 class="tabelheading">Department</h5>
+              </div>
+              <div class="col-sm-5">
+                  <div class="paddingformat float-right">
+                          <button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddModal">Add Department</button>
+                  </div>
+                 </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-11">
+      <div class="card">
+          <!--Table-->
+          <table class="table table-striped">
+              <thead>
+                  <tr class="he1">
+                      <th>Department ID</th>
+                      <th>Department Name</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let test of departmentDetailsSave ">
+                      <td>{{test.id}}</td>
+                      <td>{{test.departmentName}}</td>
+                      <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditModal" (click)="getDetailsId(test)">Edit</button>
+                      <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal" (click)="getDetailsId(test)">Delete</button></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Add -->
+<div class="modal fade" id="AddModal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+  
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <h6 class="modal-title">Confirmation</h6>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+  
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <div class="modal-body">
+                      <form>
+                      <div class="form-horizontal">
+                          <div class="inline">
+                              <div class="row">
+                                  <label class="control-label col-lg-6">Department Name:</label>
+                                  <div class="col-lg-6">
+                                      <input type="text" class="form-control" name="username" [(ngModel)]="departmentDetailsobj.departmentName">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      </form>
+                  </div>
+              </div>
+  
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="addDepartment()">Submit</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+<!-- Modal for Edit -->
+<div class="modal fade" id="EditModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+              <h6 class="modal-title">Confirmation</h6>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+              <div class="modal-body">
+                  <div class="form-horizontal">
+                          <div class="inline">
+                                  <div class="row">
+                                      <label class="control-label col-lg-6">Department ID:</label>
+                                      <div class="col-lg-6">
+                                          <input type="text" class="form-control" id="id" name="Id" disabled [(ngModel)]="departmentDetailsobj.id">
+                                      </div>
+                                  </div>
+                              </div>
+                              <br>
+                      <div class="inline">
+                          <div class="row">
+                              <label class="control-label col-lg-6">Department Name:</label>
+                              <div class="col-lg-6">
+                                  <input type="text" class="form-control" id="username" name="username" [(ngModel)]="departmentDetailsobj.departmentName">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)=" UpdateDepartmentDetails()">Submit</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Delete -->
+<div class="modal fade" id="DeleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h6 class="modal-title">Confirmation</h6>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+  
+          <!-- Modal body -->
+          <div class="modal-body">
+            <P>Are You Sure To Delete?</P>
+          </div>
+  
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="deleteDepartment(departmentDetailsobj)">Yes</button>
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>

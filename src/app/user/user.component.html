@@ -1,0 +1,419 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="paddingformat">User</h4>
+        </div>
+        <div class="col-sm-6">
+          <div class="paddingformat float-right">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddModal">Add User</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <!--Table-->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <!-- <th>Date Of Birth</th>
+            <th>Gender</th> -->
+
+            <th>Join Date</th>
+            <th>Role </th>
+            <th>Department </th>
+            <th>Service Period</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usr of user">
+            <td>{{usr.userName}}</td>
+            <td>{{usr.firstName}}</td>
+            <td>{{usr.lastName}}</td>
+            <td>{{usr.email}}</td>
+            <!-- <td>01.01.2000</td>
+            <td>Female</td> -->
+            <td>{{usr.joinDate | date: 'yyyy-MM-dd'}}</td>
+            <td>{{usr.roleId.roleName}}</td>
+            <td>{{usr.departmentId.departmentName}}</td>
+            <td>{{usr.servicePeriod}}</td>
+            <td>
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditModal"
+                data-dismiss="modal" (click)="editStatus(usr)"> Edit</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal" (click)="editStatus(usr)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Add -->
+<div id="AddModal" class="modal">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add User</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-horizontal">
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6" >First Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="userObj.firstName">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Last Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="lastname" [(ngModel)]="userObj.lastName">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">User Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="userObj.userName">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Email:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="Email" [(ngModel)]="userObj.email">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Password:</label>
+                  <div class="col-lg-6">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="userObj.password">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Confirm Password:</label>
+                  <div class="col-lg-6">
+                    <input type="password" class="form-control" name="cpassword" [(ngModel)]="userObj.password">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Gender:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="Gender">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6"> Date of Birth:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="dob">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Service period:</label>
+                  <div class="col-lg-6">
+                    <input type="number" class="form-control" name="servicePeriod" [(ngModel)]="userObj.servicePeriod">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6" ng-model="selected">Join Date:</label>
+                  <div class="col-lg-6">
+                    <input type="date" class="form-control" name="joinDate" [(ngModel)]="userObj.joinDate">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6" ng-model="selected">Role:</label>
+                  <div class="col-lg-6" >
+                    <select class="form-control form-control-sm">
+                      <option selected default hidden>Select Role</option>
+                      <option *ngFor="let role of roles" value="{{role.id}}">{{role.roleName}}</option>
+                    </select>
+                    <!-- <input type="text" class="form-control" name="role" [(ngModel)]="userObj.roleId"> -->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6" ng-model="selected">Department:</label>
+                  <div class="col-lg-6">
+                    <select class="form-control form-control-sm">
+                      <option selected default hidden>Select Department</option>
+                      <option *ngFor="let department of departments" value="{{department.id}}">{{department.departmentName}}</option>
+                    </select>
+                    <!-- <input type="text" class="form-control" name="department" [(ngModel)]="userObj.departmentId"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="float-right">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" (click)="addUser()" data-dismiss="modal">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Edit -->
+<div id="EditModal" class="modal">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit User</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-horizontal">
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">First Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="userEditObj.firstName">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Last Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="lastname" [(ngModel)]="userEditObj.lastName">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">User Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="userEditObj.userName">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Email:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="Email" [(ngModel)]="userEditObj.email">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Password:</label>
+                  <div class="col-lg-6">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="userEditObj.password">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Confirm Password:</label>
+                  <div class="col-lg-6">
+                    <input type="password" class="form-control" name="cpassword" [(ngModel)]="userEditObj.password">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Gender:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="Gender">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6"> Date of Birth:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" name="dob">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Service period:</label>
+                  <div class="col-lg-6">
+                    <input type="number" class="form-control" name="servicePeriod" [(ngModel)]="userEditObj.servicePeriod">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Join Date:</label>
+                  <div class="col-lg-6">
+                    <input type="date" class="form-control" name="joinDate" [(ngModel)]="userEditObj.joinDate">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6" ng-model="selected">Role:</label>
+                  <div class="col-lg-6" >
+                      <select class="form-control form-control-sm">
+                          <option selected default hidden>Select Role</option>
+                          <option *ngFor="let role of roles" value="{{role.id}}" ng-selected="selected">{{role.roleName}}</option>
+                        </select>
+                    <!-- <input type="text" class="form-control" name="role" [(ngModel)]="userEditObj.role"> -->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6" ng-model="selected">Department:</label>
+                  <div class="col-lg-6">
+                      <select class="form-control form-control-sm">
+                          <option selected default hidden>Select Department</option>
+                          <option *ngFor="let department of departments" value="{{department.id}}" ng-selected="selected">{{department.departmentName}}</option>
+                        </select>
+                    <!-- <input type="text" class="form-control" name="department" [(ngModel)]="userEditObj.department"> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="float-right">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-dismiss="modal" (click)="updateUserById()">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Delete -->
+<div class="modal fade" id="DeleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title">Confirmation</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <P>Do you want To Delete?</P>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="deleteUserById(userEditObj)">Yes</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

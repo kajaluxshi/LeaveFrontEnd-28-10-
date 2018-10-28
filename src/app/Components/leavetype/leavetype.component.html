@@ -1,0 +1,174 @@
+<div class="row">
+    <div class="col-sm-11">
+        <div class="card">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="paddingformat">Leave Type</h4>
+                </div>
+                <div class="col-sm-5">
+                    <div class="paddingformat float-right">
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddLeaveTypeModal">Add
+                            LeaveType</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-11">
+        <div class="card">
+            <!--Table-->
+            <table class="table table-striped">
+                <thead>
+                    <tr class="he1">
+                        <th>Leave Type ID</th>
+                        <th>Leave Type Name</th>
+                        <th>Allocation</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let leaveTypeHtml of leaveTypeArr">
+                        <td>{{leaveTypeHtml.id}}</td>
+                        <td>{{leaveTypeHtml.leaveType}}</td>
+                        <td>{{leaveTypeHtml.allocationDays}}</td>
+                        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditLeaveTypeModal" (click)="editLeaveType(leaveTypeHtml)">Edit</button>
+                        <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteLeaveTypeModal" (click)="editLeaveType(leaveTypeHtml)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for Add -->
+<div class="modal fade" id="AddLeaveTypeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h6 class="modal-title">Add Data</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                         <div class="form-horizontal">
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">Leave Type Name:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="deptname" [(ngModel)]="LeavetypeObj.leaveType">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">Allocation:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="allocation" [(ngModel)]="LeavetypeObj.allocationDays">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="addLeaveTypes(leaveTypeHtml)">Submit</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Modal for Edit -->
+<div class="modal fade" id="EditLeaveTypeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h6 class="modal-title">Edit Data</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">LeaveType ID:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="Id" disabled  [(ngModel)]="LeavetypeObj.id">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">Leave Type Name:</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="leavetypename" [(ngModel)]="LeavetypeObj.leaveType">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inline">
+                            <div class="row">
+                                <label class="control-label col-lg-6">Alloaction :</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="username" [(ngModel)]="LeavetypeObj.allocationDays">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="updateLeaveType()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal for Delete -->
+<div class="modal fade" id="DeleteLeaveTypeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h6 class="modal-title">Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <P>Are You Sure To Delete?</P>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="deleteLeaveTypes(LeavetypeObj)">Yes</button>
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

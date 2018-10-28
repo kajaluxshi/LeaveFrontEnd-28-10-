@@ -1,0 +1,166 @@
+<div class="card">
+    <div class="margin">
+      <div class="card">
+        <div class="tabelheading">
+          <h5 class="tabelheading">Carry Forward Request Table</h5>
+        </div>
+      </div>
+     
+    <table class="table table-striped">
+      <thead>
+        <th class="leaverequestth">User Name</th>
+        <th class="leaverequestth">Message</th>
+        <th class="leaverequestth">Status</th>
+        <th class="leaverequestth">View</th>
+        <th class="leaverequestth">Accept</th>
+        <th class="leaverequestth">Reject</th>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <td>Smith Roe</td>
+          <td>Medical Checkup</td>
+          <td>Pending</td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+        </tr>
+  
+        <tr>
+          <td>Smith Roe</td>
+          <td>Medical Checkup</td>
+          <td>Pending</td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+        </tr>
+  
+        <tr>
+          <td>Smith Roe</td>
+          <td>Medical Checkup</td>
+          <td>Pending</td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+        </tr>
+  
+        <tr>
+          <td>Smith Roe</td>
+          <td>Medical Checkup</td>
+          <td>Pending</td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+        </tr>
+  
+        <tr>
+          <td>Smith Roe</td>
+          <td>Medical Checkup</td>
+          <td>Pending</td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <!-- Modal for View -->
+  <div id="ViewModal" class="modal">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5> Carry Forwrd Leave Request</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>    
+          </div>
+    
+          <div class="modal-body">
+            <div class="form-horizontal">
+              <div class="inline">
+                  <div class="row">
+                    <div class="form-group col-lg-12">
+                      <div class="row">
+                          <label class="control-label col-lg-3">User Name:</label>
+                          <div class="col-lg-9">
+                            <input type="text" class="form-control" id="username" name="username">
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+              
+              <div class="inline">
+                <div class="row">
+                  <div class="form-group col-lg-12">
+                    <div class="row">
+                      <label class="control-label col-lg-3">Reason:</label>
+                      <div class="col-lg-9">
+                        <textarea rows="4" cols="78" class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+  <!-- Modal for Accept -->
+  <div class="modal fade" id="AcceptModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h6 class="modal-title">Confirmation</h6>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <h6>Accept the Request.</h6>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modal for Reject -->
+    <div class="modal fade" id="RejectModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Reject Reason</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+              <label class="control-label col-sm-3">Reason:</label>
+              <div class="col-sm-9">
+                  <textarea rows="4" cols="78" class="form-control"></textarea>
+                </div>
+            </div>
+    
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

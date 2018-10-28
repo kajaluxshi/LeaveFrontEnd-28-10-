@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="col-sm-11">
+      <div class="card">
+          <div class="row">
+              <div class="col-sm-6">
+                  <h4 class="paddingformat">Status</h4>
+              </div>
+              <div class="col-sm-5">
+                  <div class="paddingformat float-right">
+                          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddModal">Add Role</button>
+                  </div>
+                 </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-11">
+      <div class="card">
+          <!--Table-->
+          <table class="table table-striped">
+              <thead>
+                  <tr class="he1">
+                      <th>Status ID</th>
+                      <th>Status Name</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>1</td>
+                      <td>Pending</td>
+                      <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditModal">Edit</button>
+                      <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal">Delete</button></td>
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>Approved</td>
+                      <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditModal">Edit</button>
+                      <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal">Delete</button></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Add -->
+<div class="modal fade" id="AddModal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+  
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <h6 class="modal-title">Confirmation</h6>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+  
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <div class="modal-body">
+                      <div class="form-horizontal">
+                          <div class="inline">
+                              <div class="row">
+                                  <label class="control-label col-lg-6">Status Name:</label>
+                                  <div class="col-lg-6">
+                                      <input type="text" class="form-control"  name="statusname">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Submit</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+<!-- Modal for Edit -->
+<div class="modal fade" id="EditModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+              <h6 class="modal-title">Confirmation</h6>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+              <div class="modal-body">
+                  <div class="form-horizontal">
+                          <div class="inline">
+                                  <div class="row">
+                                      <label class="control-label col-lg-6">Status ID:</label>
+                                      <div class="col-lg-6">
+                                          <input type="text" class="form-control" id="id" name="Id" disabled>
+                                      </div>
+                                  </div>
+                              </div>
+                      <div class="inline">
+                          <div class="row">
+                              <label class="control-label col-lg-6">Status Name:</label>
+                              <div class="col-lg-6">
+                                  <input type="text" class="form-control" name="statusrname">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Modal footer -->S
+          <div class="modal-footer">
+              <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Submit</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Delete -->
+<div class="modal fade" id="DeleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h6 class="modal-title">Confirmation</h6>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+  
+          <!-- Modal body -->
+          <div class="modal-body">
+            <P>Are You Sure To Delete?</P>
+          </div>
+  
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
