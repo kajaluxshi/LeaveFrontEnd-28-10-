@@ -13,11 +13,14 @@ export class RemainingleaveService {
 
   constructor(private httpObj:HttpClient) {}
 
-    private leaveRequestURL='http://localhost:8080/user';
+    private leaveRequestURL='http://localhost:8080/leave';
 
-    getRemainingDaysById(){
-      return this.httpObj.get<[Remainingleave]>(this.leaveRequestURL);
+    getRemainingDaysByUId(userId){
+      return this.httpObj.get<[Remainingleave]>(this.leaveRequestURL+'/'+userId);
     }
     
+    getRemainingDaysByUIdandLid(userId,leaveId){
+      return this.httpObj.get<[Remainingleave]>(this.leaveRequestURL+'/'+userId+'/'+leaveId);
+    }
 
 }

@@ -77,10 +77,9 @@
 
   <div class="col-md-4">
     <table>
-      <tr *ngFor="let remainDays of remainingDays">
-        <th>{{remainingDays.leaveTypeId}}</th>
-        <th>{{remainDays.remainDays}}</th>
-        <th>Hi</th>
+      <tr *ngFor="let remainD of remainingDaysByUidArr">
+        <td>{{remainD.leaveType}}</td>
+        <td>{{remainD.remainingDays}}</td>
       </tr>
     </table>
 

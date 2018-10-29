@@ -8,6 +8,7 @@ import { RemainingleaveService } from '../Services/remainingleave.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from '../Services/login.service';
 import { InteractionService } from '../UIService/interaction.service';
+import { Remainingleave } from '../Models/remainingleave';
 
 @Component({
   selector: 'app-applyrequest',
@@ -15,9 +16,10 @@ import { InteractionService } from '../UIService/interaction.service';
   styleUrls: ['./applyrequest.component.css']
 })
 export class ApplyrequestComponent implements OnInit {
-  leaveTypeArr: Leavetype[];
+  leaveTypeArr: any [];
   applyLeaveRequest: Applyrequest[];
   leaveRequestObj = new Applyrequest();
+  remainingDaysByUidArr:Remainingleave[];
   userId: number;
   leaveTypeId: number;
 
@@ -36,6 +38,7 @@ export class ApplyrequestComponent implements OnInit {
     });
     this.getAllLeaveRequest();
     this.getLeaveTypes();
+    this.getReamainingDaysByUserId();
   }
 
 
@@ -91,5 +94,16 @@ export class ApplyrequestComponent implements OnInit {
     this.leaveRequestForm.patchValue({ startDate: "" });
     this.leaveRequestForm.patchValue({ endDate: "" });
     this.leaveRequestForm.patchValue({ remainingDays: "" });
+  }
+
+  getReamainingDaysByUserId(){
+    this.remainingleaveService.getRemainingDaysByUId(this.userId).subscribe(remainingDays => {
+      console.log(remainingDays);
+      this.remainingDaysByUidArr = remainingDays;
+    });
+  }
+
+  carryForward(){
+
   }
 }

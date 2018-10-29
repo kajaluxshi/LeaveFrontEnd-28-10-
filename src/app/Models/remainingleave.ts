@@ -2,7 +2,7 @@ export class Remainingleave {
     id:number;
     userId:number;
     leaveTypeId:number;
-    remainDays:number;
+    remainingDays:number;
     utilizedDays:number;
 }
 
