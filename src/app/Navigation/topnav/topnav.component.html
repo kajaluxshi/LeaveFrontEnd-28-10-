@@ -19,10 +19,15 @@
               <i class="fa fa-bell iconstyle"></i>
               
             </div>
-            <div class="col-md-2">
-              <i class="fa fa-user iconstyle" (click)="logOut()"></i>
-              <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button> -->
-              <!-- <button (click)="logOut()">logout</button> -->
+            <div class="Login">
+                <a type="" class="nav-item dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user iconstyle"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button class="dropdown-item" type="button">User Profile</button>
+                  <button class="dropdown-item" type="button">Setting</button>
+                  <button class="dropdown-item" type="button" (click)="logOut()">Log Out </button>
+                </div>
             </div>
           </div>
 

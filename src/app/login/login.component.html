@@ -1,26 +1,27 @@
 <form action="/action_page.php">
   <div class="container">
-    <h1 class="form-heading">login Form</h1>
     <div class="login-form">
       <div class="main-div">
-         <form id="Login">
+        <form id="Login">
 
           <div class="form-group">
 
 
-            <input type="email" class="form-control" id="inputEmail" placeholder="User Name" name="userName" [(ngModel)]="login.userName" >
+            <input type="email" class="form-control" id="inputEmail" placeholder="User Name" name="userName"
+              [(ngModel)]="login.userName">
 
           </div>
 
           <div class="form-group">
 
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" [(ngModel)]="login.password" >
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password"
+              [(ngModel)]="login.password">
 
           </div>
           <div class="forgot">
             <a href="reset.html">Forgot password?</a>
           </div>
-          <button type="submit" class="btn btn-primary"  (click)="getLoginAuth();">Login</button>
+          <button type="submit" class="btn btn-primary" (click)="getLoginAuth();">Login</button>
 
         </form>
       </div>

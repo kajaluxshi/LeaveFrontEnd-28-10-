@@ -11,13 +11,20 @@ import { ApplyrequestComponent } from './applyrequest/applyrequest.component';
 
 import { AdminComponent } from './admin/admin.component';
 
+import { CarryForwadRequestComponent } from './ManageLeaveRequest/carry-forwad-request/carry-forwad-request.component';
+import { LeaveRequestComponent } from './ManageLeaveRequest/leave-request/leave-request.component';
+
 const routes: Routes = [
   {path: 'rolename', component:RoleComponent},
   {path: 'department', component:DepartmentComponent},
   {path: 'status', component:StatusComponent},
   {path: 'user', component:UserComponent},
   {path: 'leaveType', component:LeavetypeComponent},
+
   {path: 'applyLeaveRequest', component:ApplyrequestComponent},
+  {path: 'carryForwardRequest', component:CarryForwadRequestComponent},
+  {path: 'manageLeaveRequest', component:LeaveRequestComponent},
+
 
   {path: 'admin', component:AdminComponent},
   {path: '**', redirectTo: ''},

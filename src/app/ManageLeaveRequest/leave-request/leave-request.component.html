@@ -1,3 +1,237 @@
-<p>
-  leave-request works!
-</p>
+<!-- Tabel -->
+<div class="card">
+  <div class="tabelheading">
+    <h6 class="tabelheading">Leave Request Table</h6>
+</div>
+<table class="table table-striped">
+  <thead>
+    <th class="leaverequestth">User Name</th>
+    <th class="leaverequestth">Leave Type</th>
+    <th class="leaverequestth">Start Date</th>
+    <th class="leaverequestth">End Date</th>
+    <th class="leaverequestth">Leave Days</th>
+    <th class="leaverequestth">Reason</th>
+    <th class="leaverequestth">Status</th>
+    <th class="leaverequestth">View</th>
+    <th class="leaverequestth">Accept</th>
+    <th class="leaverequestth">Reject</th>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Smith Roe</td>
+      <td>Medical Leave</td>
+      <td>16.10.2018</td>
+      <td>18.10.2018</td>
+      <td>3</td>
+      <td>Medical Checkup</td>
+      <td>Pending</td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+    </tr>
+
+    <tr>
+      <td>Smith Roe</td>
+      <td>Medical Leave</td>
+      <td>16.10.2018</td>
+      <td>18.10.2018</td>
+      <td>3</td>
+      <td>Medical Checkup</td>
+      <td>Pending</td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+    </tr>
+
+    <tr>
+      <td>Smith Roe</td>
+      <td>Medical Leave</td>
+      <td>16.10.2018</td>
+      <td>18.10.2018</td>
+      <td>3</td>
+      <td>Medical Checkup</td>
+      <td>Pending</td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+    </tr>
+
+    <tr>
+      <td>Smith Roe</td>
+      <td>Medical Leave</td>
+      <td>16.10.2018</td>
+      <td>18.10.2018</td>
+      <td>3</td>
+      <td>Medical Checkup</td>
+      <td>Pending</td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+    </tr>
+
+    <tr>
+      <td>Smith Roe</td>
+      <td>Medical Leave</td>
+      <td>16.10.2018</td>
+      <td>18.10.2018</td>
+      <td>3</td>
+      <td>Medical Checkup</td>
+      <td>Pending</td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<!-- Modal for View -->
+<div id="ViewModal" class="modal">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Leave Request</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-horizontal">
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">User Name:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="username" name="username">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Leave Type:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="leavetype" name="leavetype">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Start Date:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="startdate" name="startdate">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">End Date:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="enddate" name="enddate">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Leave Days:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="leaveDays" name="LeaveDays">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-lg-6">
+                <div class="row">
+                  <label class="control-label col-lg-6">Attachment:</label>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" id="attachment" name="attachment">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inline">
+            <div class="row">
+              <div class="form-group col-lg-12">
+                <div class="row">
+                  <label class="control-label col-lg-3">Reason:</label>
+                  <div class="col-lg-9">
+                    <textarea rows="4" cols="78" class="form-control"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal for Accept -->
+<div class="modal fade" id="AcceptModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h6>Accept the Request.</h6>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Reject -->
+<div class="modal fade" id="RejectModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Reject Reason</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <label class="control-label col-sm-3">Reason:</label>
+        <div class="col-sm-9">
+          <textarea rows="4" cols="78" class="form-control"></textarea>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,8 +3,8 @@
     <div class="card">
       <div class="card-header">Apply Leave Request</div>
       <div class="card-body">
-        {{leaveRequestObj | json}}
-        {{leaveRequestForm.value | json}}
+        <!-- {{leaveRequestObj | json}}
+        {{leaveRequestForm.value | json}} -->
         <form [formGroup]="leaveRequestForm" (ngSubmit)="onSubmit()">
 
           <div class="row">
@@ -101,7 +101,7 @@
   <div class="col-md-12 top-margin-space">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Leave History</h3>
+        <h5 class="panel-title">Leave History</h5>
       </div>
       <div class="panel-body">
         <table class="table table-striped table-hover">
