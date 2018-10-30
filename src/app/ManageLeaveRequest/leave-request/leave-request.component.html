@@ -2,92 +2,38 @@
 <div class="card">
   <div class="tabelheading">
     <h6 class="tabelheading">Leave Request Table</h6>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th class="leaverequestth">User Name</th>
+      <th class="leaverequestth">Leave Type</th>
+      <th class="leaverequestth">Start Date</th>
+      <th class="leaverequestth">End Date</th>
+      <th class="leaverequestth">Leave Days</th>
+      <th class="leaverequestth">Reason</th>
+      <th class="leaverequestth">Status</th>
+      <th class="leaverequestth">View</th>
+      <th class="leaverequestth">Accept</th>
+      <th class="leaverequestth">Reject</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let history of applyLeaveRequest">
+        <td>{{userName}}</td>
+        <td>{{history.leaveTypeId.leaveType}}</td>
+        <td>{{history.startDate | date:"dd-mm-yyyy"}}</td>
+        <td>{{history.endDate | date:"dd-mm-yyyy"}}</td>
+        <td>{{history.leaveDays}}</td>
+        <td>{{history.reason}}</td>
+        <td>{{history.statusId.status}}</td>
+        <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+        <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+        <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+      </tr>
+
+
+    </tbody>
+  </table>
 </div>
-<table class="table table-striped">
-  <thead>
-    <th class="leaverequestth">User Name</th>
-    <th class="leaverequestth">Leave Type</th>
-    <th class="leaverequestth">Start Date</th>
-    <th class="leaverequestth">End Date</th>
-    <th class="leaverequestth">Leave Days</th>
-    <th class="leaverequestth">Reason</th>
-    <th class="leaverequestth">Status</th>
-    <th class="leaverequestth">View</th>
-    <th class="leaverequestth">Accept</th>
-    <th class="leaverequestth">Reject</th>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>Smith Roe</td>
-      <td>Medical Leave</td>
-      <td>16.10.2018</td>
-      <td>18.10.2018</td>
-      <td>3</td>
-      <td>Medical Checkup</td>
-      <td>Pending</td>
-      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
-    </tr>
-
-    <tr>
-      <td>Smith Roe</td>
-      <td>Medical Leave</td>
-      <td>16.10.2018</td>
-      <td>18.10.2018</td>
-      <td>3</td>
-      <td>Medical Checkup</td>
-      <td>Pending</td>
-      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
-    </tr>
-
-    <tr>
-      <td>Smith Roe</td>
-      <td>Medical Leave</td>
-      <td>16.10.2018</td>
-      <td>18.10.2018</td>
-      <td>3</td>
-      <td>Medical Checkup</td>
-      <td>Pending</td>
-      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
-    </tr>
-
-    <tr>
-      <td>Smith Roe</td>
-      <td>Medical Leave</td>
-      <td>16.10.2018</td>
-      <td>18.10.2018</td>
-      <td>3</td>
-      <td>Medical Checkup</td>
-      <td>Pending</td>
-      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
-    </tr>
-
-    <tr>
-      <td>Smith Roe</td>
-      <td>Medical Leave</td>
-      <td>16.10.2018</td>
-      <td>18.10.2018</td>
-      <td>3</td>
-      <td>Medical Checkup</td>
-      <td>Pending</td>
-      <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-      <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-      <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
-
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 <!-- Modal for View -->
 <div id="ViewModal" class="modal">
