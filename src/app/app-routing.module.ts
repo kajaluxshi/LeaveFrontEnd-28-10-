@@ -13,6 +13,7 @@ import { AdminComponent } from './admin/admin.component';
 
 import { CarryForwadRequestComponent } from './ManageLeaveRequest/carry-forwad-request/carry-forwad-request.component';
 import { LeaveRequestComponent } from './ManageLeaveRequest/leave-request/leave-request.component';
+import { LeaveHistoryComponent } from './ManageLeaveRequest/leave-history/leave-history.component';
 
 const routes: Routes = [
   {path: 'rolename', component:RoleComponent},
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: 'applyLeaveRequest', component:ApplyrequestComponent},
   {path: 'carryForwardRequest', component:CarryForwadRequestComponent},
   {path: 'manageLeaveRequest', component:LeaveRequestComponent},
-
+  {path: 'leaveHistory', component:LeaveHistoryComponent},
 
   {path: 'admin', component:AdminComponent},
   {path: '**', redirectTo: ''},

@@ -1,13 +1,13 @@
 <div class="card">
   <div class="margin">
     <div class="list-group">
-      <div *ngIf="userRole==='employee'">
+      <div *ngIf="userRole==='Employee'">
         <a class="list-group-item" routerLink="/applyLeaveRequest">
           Request Leaves
         </a>
       </div>
 
-      <div *ngIf="userRole==='admin'">
+      <div *ngIf="userRole==='Admin'">
         <a class="list-group-item" routerLink="/applyLeaveRequest">
           Request Leaves
         </a>
@@ -16,6 +16,9 @@
         </a>
         <a class="list-group-item " routerLink="/manageLeaveRequest">
           Manage Leaves
+        </a>
+        <a class="list-group-item " routerLink="/leaveHistory">
+          Leave History
         </a>
         <a class="list-group-item" routerLink="/user">
           User

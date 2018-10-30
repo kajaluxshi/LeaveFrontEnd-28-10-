@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="tabelheading">
+    <h6 class="tabelheading">Leave Request Table</h6>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th class="leaverequestth">User Name</th>
+      <th class="leaverequestth">Leave Type</th>
+      <th class="leaverequestth">Start Date</th>
+      <th class="leaverequestth">End Date</th>
+      <th class="leaverequestth">Leave Days</th>
+      <th class="leaverequestth">Reason</th>
+      <th class="leaverequestth">Status</th>
+      <th class="leaverequestth">Cancle</th>
+      </thead>
+    <tbody>
+      <tr *ngFor="let history of applyLeaveRequest">
+        <td>{{history.userId.firstName+ " " + history.userId.lastName}}</td>
+        <td>{{history.leaveTypeId.leaveType}}</td>
+        <td>{{history.startDate | date:"dd-mm-yyyy"}}</td>
+        <td>{{history.endDate | date:"dd-mm-yyyy"}}</td>
+        <td>{{history.leaveDays}}</td>
+        <td>{{history.reason}}</td>
+        <td>{{history.statusId.status}}</td>
+        <td><button type="submit" class="btn-md btn-danger">Cancel</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

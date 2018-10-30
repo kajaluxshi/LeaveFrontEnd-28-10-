@@ -27,6 +27,7 @@ import { LeaveRequestComponent } from './ManageLeaveRequest/leave-request/leave-
 import { StatusService } from './Services/status.service';
 import { UserService } from './Services/user.service';
 import { DepartmentService } from './Services/department.service';
+import { LeaveHistoryComponent } from './ManageLeaveRequest/leave-history/leave-history.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DepartmentService } from './Services/department.service';
     SidenavadminComponent,
     CarryForwadRequestComponent,
     LeaveRequestComponent,
+    LeaveHistoryComponent,
    
   ],
   imports: [

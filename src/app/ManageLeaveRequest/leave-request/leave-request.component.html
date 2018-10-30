@@ -17,20 +17,20 @@
       <th class="leaverequestth">Reject</th>
     </thead>
     <tbody>
-      <tr *ngFor="let history of applyLeaveRequest">
-        <td>{{userName}}</td>
-        <td>{{history.leaveTypeId.leaveType}}</td>
-        <td>{{history.startDate | date:"dd-mm-yyyy"}}</td>
-        <td>{{history.endDate | date:"dd-mm-yyyy"}}</td>
-        <td>{{history.leaveDays}}</td>
-        <td>{{history.reason}}</td>
-        <td>{{history.statusId.status}}</td>
-        <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-        <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-        <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
-      </tr>
-
-
+      <ng-container *ngFor="let history of applyLeaveRequest">
+        <tr *ngIf="history.statusId.id === 1">
+          <td>{{history.userId.firstName+ " " + history.userId.lastName}}</td>
+          <td>{{history.leaveTypeId.leaveType}}</td>
+          <td>{{history.startDate | date:"dd-mm-yyyy"}}</td>
+          <td>{{history.endDate | date:"dd-mm-yyyy"}}</td>
+          <td>{{history.leaveDays}}</td>
+          <td>{{history.reason}}</td>
+          <td>{{history.statusId.status}}</td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>
@@ -149,7 +149,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="approveLeave(history.id)">Accept</button>
       </div>
     </div>
   </div>
@@ -176,7 +176,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="rejectLeave()">Send</button>
       </div>
     </div>
   </div>

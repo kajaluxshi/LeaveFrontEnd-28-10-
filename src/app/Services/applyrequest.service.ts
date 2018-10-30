@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Applyrequest } from '../Models/applyrequest';
+import { LeaveRequestManage } from '../Models/leave-request-manage';
 
 const httpOption={
   header:new HttpHeaders({'Content.Type':'application/json'})
@@ -22,5 +23,12 @@ export class ApplyrequestService {
     return this.httpObj.post<Applyrequest>(this.leaveRequestURL,data);
   }
 
+  public approvedLeaveRequest(processLeaveRequest) {
+    return this.httpObj.post<LeaveRequestManage>(this.leaveRequestURL + "/leaveapprove", processLeaveRequest);
+  }
+
+  public rejectLeaveRequest(processLeaveRequest) {
+    return this.httpObj.post<LeaveRequestManage>(this.leaveRequestURL + "/rejectleave", processLeaveRequest);
+  }
   
 }
