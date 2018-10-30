@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApplyrequestService } from '../Services/applyrequest.service';
 import { Applyrequest } from '../Models/applyrequest';
 import { LeavetypeService } from '../Services/leavetype.service';
-import { Leavetype } from '../Models/leavetype';
 import { RemainingleaveService } from '../Services/remainingleave.service';
-
 import { FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from '../Services/login.service';
 import { InteractionService } from '../UIService/interaction.service';
 import { Remainingleave } from '../Models/remainingleave';
 
@@ -20,6 +17,7 @@ export class ApplyrequestComponent implements OnInit {
   applyLeaveRequest: Applyrequest[];
   leaveRequestObj = new Applyrequest();
   remainingDaysByUidArr:Remainingleave[];
+  remainingDaysByUidLidArr:Remainingleave[];
   userId: number;
   leaveTypeId: number;
 
@@ -29,7 +27,6 @@ export class ApplyrequestComponent implements OnInit {
     private applyrequestService: ApplyrequestService,
     private leavetypeService: LeavetypeService,
     private remainingleaveService: RemainingleaveService,
-    private loginService: LoginService,
     private intretionService:InteractionService) { }
 
   ngOnInit() {
@@ -46,7 +43,8 @@ export class ApplyrequestComponent implements OnInit {
     startDate: new FormControl(''),
     endDate: new FormControl(''),
     leaveType: new FormControl(''),
-    reason: new FormControl('')
+    reason: new FormControl(''),
+    remainingD:new FormControl('')
   });
 
 
@@ -85,7 +83,9 @@ export class ApplyrequestComponent implements OnInit {
     this.applyrequestService.addLeaveRequests(this.leaveRequestObj).subscribe(msg => {
       this.clearFields();
       this.getAllLeaveRequest();
+      this.getReamainingDaysByUserId();
     });
+
   }
 
   clearFields() {
@@ -93,13 +93,20 @@ export class ApplyrequestComponent implements OnInit {
     this.leaveRequestForm.patchValue({ leaveType: "Select Leave Type" });
     this.leaveRequestForm.patchValue({ startDate: "" });
     this.leaveRequestForm.patchValue({ endDate: "" });
-    this.leaveRequestForm.patchValue({ remainingDays: "" });
+    this.leaveRequestForm.patchValue({ remainingD: "" });
   }
 
   getReamainingDaysByUserId(){
     this.remainingleaveService.getRemainingDaysByUId(this.userId).subscribe(remainingDays => {
       console.log(remainingDays);
       this.remainingDaysByUidArr = remainingDays;
+    });
+  }
+
+  getRemainingDaysByUidLid(){
+    this.leaveTypeId = this.leaveRequestForm.value.leaveType;
+    this.remainingleaveService.getRemainingDaysByUIdandLid(this.userId,this.leaveTypeId).subscribe(remaining=>{
+    this.remainingDaysByUidLidArr=remaining;
     });
   }
 

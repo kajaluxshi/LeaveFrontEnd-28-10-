@@ -3,8 +3,6 @@
     <div class="card">
       <div class="card-header">Apply Leave Request</div>
       <div class="card-body">
-        <!-- {{leaveRequestObj | json}}
-        {{leaveRequestForm.value | json}} -->
         <form [formGroup]="leaveRequestForm" (ngSubmit)="onSubmit()">
 
           <div class="row">
@@ -13,7 +11,7 @@
               <div class="form-group">
                 <label for="leave-type" class="col-sm-12">Leave Type</label>
                 <div class="col-sm-12">
-                  <select class="form-control" formControlName="leaveType">
+                  <select class="form-control" formControlName="leaveType" (change)="getRemainingDaysByUidLid()">
                     <option *ngFor="let lt of leaveTypeArr" value="{{lt.id}}">
                       {{lt.leaveType}}
                     </option>
@@ -26,8 +24,7 @@
               <div class="form-group">
                 <label class="col-sm-12" for="remain-days">Remaining Days:</label>
                 <div class="col-sm-12">
-                  <input type="number" class="form-control"  min="1" placeholder="Remain Days"
-                    readonly>
+                  <input type="number" class="form-control"  min="1" placeholder="Remain Days" readonly value="{{remainingDaysByUidLidArr}}">
                 </div>
               </div>
             </div>
@@ -74,19 +71,22 @@
   </div>
 
 
-
   <div class="col-md-4">
-    <table>
-      <tr *ngFor="let remainD of remainingDaysByUidArr">
-        <td>{{remainD.leaveType}}</td>
-        <td>{{remainD.remainingDays}}</td>
-      </tr>
-    </table>
-
-
+  <div class="card">
+      <div class="card-header">Remaining Days</div>
+    <div class="card-body">
+        <table>
+            <tr *ngFor="let remainD of remainingDaysByUidArr">
+              <td>{{remainD.leaveType}}</td>
+              <td>{{remainD.remainingDays}}</td>
+            </tr>
+          </table>
+    </div>
+  </div>
+ 
 
     <!-- Carry Forward Request  -->
-    <div class="card">
+    <div class="card top-margin-space" >
       <div class="card-header">Carry Forward</div>
       <div class="card-body">
         <button type="button" class="btn btn-primary">Apply Carry Forward </button>
