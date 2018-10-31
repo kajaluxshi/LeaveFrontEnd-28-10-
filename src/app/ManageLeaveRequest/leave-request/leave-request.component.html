@@ -26,9 +26,9 @@
           <td>{{history.leaveDays}}</td>
           <td>{{history.reason}}</td>
           <td>{{history.statusId.status}}</td>
-          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal">View</button></td>
-          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal">Accept</button></td>
-          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal">Reject</button></td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#ViewModal" (click)="getLeaveDetailsBYId(userId)">View</button></td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#AcceptModal" (click)="approveLeave(history.id)">Accept</button></td>
+          <td><button class="btn btn-danger" data-toggle="modal" data-target="#RejectModal" (click)="getLeaveRejectId(history.id)">Reject</button></td>
         </tr>
       </ng-container>
     </tbody>
@@ -42,10 +42,8 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Leave Request</h3>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h6>Leave Request</h6>
       </div>
-
       <div class="modal-body">
         <div class="form-horizontal">
           <div class="inline">
@@ -54,7 +52,7 @@
                 <div class="row">
                   <label class="control-label col-lg-6">User Name:</label>
                   <div class="col-lg-6">
-                    <input type="text" class="form-control" id="username" name="username">
+                    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="leaveRequestManageObj.username">
                   </div>
                 </div>
               </div>

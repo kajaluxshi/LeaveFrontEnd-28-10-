@@ -14,6 +14,7 @@ export class LeaveRequestComponent implements OnInit {
   leaveRequestManageObj = new LeaveRequestManage();
   userName:String;
   UserId:number;
+  firstName:String;
 
   constructor(
     private applyrequestService: ApplyrequestService,
@@ -64,9 +65,32 @@ export class LeaveRequestComponent implements OnInit {
     );
   }
 
+  getLeaveRejectId(lvRequestId) {
+    this.leaveRequestManageObj.leaveRequestId = lvRequestId;
+    this.leaveRequestManageObj.processedBy = 1;
+    this.leaveRequestManageObj.statusId = 3;
+    this.leaveRequestManageObj.rejectreason=null;
+    //console.log(this.leaveRequestManageObj);
+    this.applyrequestService.rejectLeaveRequest(this.leaveRequestManageObj).subscribe(data => {
+      this.intretionService.upadateMsg("success");
+      this.getAllLeaveRequest();
+    },
+      error => {
+        this.intretionService.upadateMsg("fail");
+      });
+  }
+
   sendUserInfo(firstName){
     this.intretionService.useUserInfo(firstName);
   }
 
+  selectedUserId(userId){
+    this.intretionService.useSelectedUserId(userId);
+  }
+
+
+  getLeaveDetailsBYId(userId){
+    this.leaveRequestManageObj=Object.assign({},userId)
+  }
 
 }
