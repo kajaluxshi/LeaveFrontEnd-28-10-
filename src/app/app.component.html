@@ -1,13 +1,13 @@
 <app-login *ngIf="!isLogedIn"></app-login>
 
 <!-- <router-outlet></router-outlet> -->
-<div class="container-fluid"  *ngIf="isLogedIn">
-<div class="row">
+<div class="container-fluid" *ngIf="isLogedIn">
+  <div class="row">
     <div class="col-sm-12">
       <app-topnav [userName]="userNameParent"></app-topnav>
     </div>
   </div>
-  
+
   <div class="paddingcard">
   </div>
   <div class="row">
@@ -17,8 +17,8 @@
     <div class="col-sm-10">
       <!-- <app-manage-leave-request></app-manage-leave-request> -->
       <!-- <app-admin></app-admin> -->
-     
+
       <app-admin></app-admin>
     </div>
   </div>
-  </div>
+</div>
